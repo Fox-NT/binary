@@ -47,5 +47,21 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+
+    const menuBtn = document.querySelector('.menu-link'),
+          menu = document.querySelector('.sub-menu-list');
+
+    menuBtn.addEventListener('click', () => {
+        menu.classList.toggle('sub-show');
+        menuBtn.classList.toggle('menu_a_active');
+    //     if (menu.classList.contains('sub-hide')) {
+    //         menu.classList.add('sub-show');
+    //         menu.classList.remove('sub-hide');
+    //     } else {
+    //         menu.classList.add('sub-hide');
+    //         menu.classList.remove('sub-show');
+    //     }
+    // });
+    });
 });
 
