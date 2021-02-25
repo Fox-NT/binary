@@ -618,6 +618,10 @@ body {
     margin-bottom: 40px;
 }
 
+.timer_block {
+    display: none
+}
+
 .portfolio_list {
     display: flex;
     flex-wrap:wrap;
@@ -1006,10 +1010,19 @@ body {
     padding-top: 40px;
     color:  rgb(82, 141, 126);
     margin: 0 10px;
+    opacity: 0;
 }
 
+
+.razdel1 {
+    font-size: 64px;
+    align-self:flex-start;
+    padding-top: 40px;
+    color:  rgb(82, 141, 126);
+    margin: 0 10px;
+}
 .opacity_none {
-    opacity: 0;
+    opacity: 1;
 }
 
 
@@ -1028,6 +1041,8 @@ body {
     -webkit-box-shadow:1px 1px 21px 4px rgba(0,0,0,0.42)inset;
     -moz-box-shadow:1px 1px 21px 4px rgba(0,0,0,0.42)inset;
     width: 135px;
+    
+    user-select: none;
 }
 
 /*Media query*/

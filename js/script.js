@@ -119,11 +119,11 @@ document.addEventListener('DOMContentLoaded', () => {
             item.classList.toggle('opacity_none');
         });
     }
-    setInterval(test, 500);
+    setInterval(test, 1000);
         test();
 
 
-        const deadtime = '2021-03-19';
+        const deadtime = '2021-02-26';
 
         function getTimeResistance(endtime) {
             const t = Date.parse(endtime) - new Date();
@@ -154,16 +154,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
             function updateClock() {
                 const time = getTimeResistance(endtime);
-                days.innerHTML = time.days;
-                hourse.innerHTML = time.hourse;
-                minutes.innerHTML = time.minutes;
-                seconds.innerHTML = time.seconds;
+                days.innerHTML = addZero(time.days);
+                hourse.innerHTML = addZero(time.hourse);
+                minutes.innerHTML = addZero(time.minutes);
+                seconds.innerHTML = addZero(time.seconds);
 
                 if (time.total <= 0) {
                     clearInterval(timeInterval);
                 }
             }
         }
+
+        function addZero(num) {
+            if (num >= 0 && num < 10) {
+                return `0${num}`;
+            } else {
+                return num;
+            }
+        }
+
         setClock('.timer_wrapper', deadtime);
 });
 
