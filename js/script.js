@@ -65,5 +65,104 @@ document.addEventListener('DOMContentLoaded', () => {
         // }
     // });
     });
+
+    const nameInput = document.querySelector('.input_text'),
+          emailInput = document.querySelector('.input_email'),
+          messageInput = document.querySelector('.input_message'),
+          sendFormInput = document.querySelector('.contact_btn');
+
+    // const obj = {
+    //     name: '',
+    //     email: '',
+    //     message: ''
+    // };
+    const obj = {
+        Users: [
+            {
+        name: '',
+        email: '',
+        message: ''
+            }
+        ]
+    };
+    
+    let i = 0;
+        sendFormInput.addEventListener('click', (e) => {
+            e.preventDefault();
+            let nameUser = nameInput.value;
+            let emailUser = emailInput.value;
+            let messageUser = messageInput.value;
+
+            obj.Users[i] = {
+                name: nameUser,
+                email: emailUser,
+                message: messageUser
+            };
+            
+            console.log(`Имя пользователя: ${obj.Users[i].name};`);
+            console.log(`E-mail пользователя: ${obj.Users[i].email};`);
+            console.log(`Сообщение пользователя: ${obj.Users[i].message};`);
+            console.log(obj);
+            i++;
+    //   obj.Users.forEach((item) => {
+    //     console.log(`Имя пользователя: ${item.name};`);
+    //     console.log(`E-mail пользователя: ${item.email};`);
+    //     console.log(`Сообщение пользователя: ${item.message};`);
+    // });  
+            
+        });
+
+    const razdel = document.querySelectorAll('.razdel');
+
+    function test() {
+        razdel.forEach(item => {
+            item.classList.toggle('opacity_none');
+        });
+    }
+    setInterval(test, 500);
+        test();
+
+
+        const deadtime = '2021-03-12';
+
+        function getTimeResistance(endtime) {
+            const t = Date.parse(endtime) - new Date();
+
+            const days = Math.floor(t / (1000 * 60 * 60 * 24)),
+                  hourse = Math.floor((t / (1000 * 60 * 60) % 24)),
+                  minutes = Math.floor((t / (1000 * 60) % 60)),
+                  seconds = Math.floor(((t / 1000) % 60));
+
+            return {
+                'total:': t,
+                'days': days,
+                'hourse': hourse,
+                'minutes': minutes,
+                'seconds': seconds
+            };
+
+        }
+
+        function setClock(selector, endtime) {
+            const timer = document.querySelector(selector),
+                  days = timer.querySelector('.days'),
+                  hourse = timer.querySelector('.hourse'),
+                  minutes = timer.querySelector('.minutes'),
+                  seconds = timer.querySelector('.seconds'),
+                  timeInterval = setInterval(updateClock, 1000);
+
+            function updateClock() {
+                const time = getTimeResistance(endtime);
+                days.innerHTML = time.days;
+                hourse.innerHTML = time.hourse;
+                minutes.innerHTML = time.minutes;
+                seconds.innerHTML = time.seconds;
+
+                if (time.total <= 0) {
+                    clearInterval(timeInterval);
+                }
+            }
+        }
+        setClock('.timer_wrapper', deadtime);
 });
 
