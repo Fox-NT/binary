@@ -1217,6 +1217,6 @@ body {
     font-weight: 700;
 }
 .timer_block {
-    display: block;
+    display: none;
 }
 }
