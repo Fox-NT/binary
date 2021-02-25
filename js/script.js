@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
         test();
 
 
-        const deadtime = '2021-03-12';
+        const deadtime = '2021-03-19';
 
         function getTimeResistance(endtime) {
             const t = Date.parse(endtime) - new Date();
