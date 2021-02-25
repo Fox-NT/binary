@@ -140,7 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 'minutes': minutes,
                 'seconds': seconds
             };
-
         }
 
         function setClock(selector, endtime) {
@@ -150,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   minutes = timer.querySelector('.minutes'),
                   seconds = timer.querySelector('.seconds'),
                   timeInterval = setInterval(updateClock, 1000);
+                  updateClock();
 
             function updateClock() {
                 const time = getTimeResistance(endtime);
@@ -163,6 +163,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         }
-        setClock('.timer_wrapper', deadtime);
 });
 
