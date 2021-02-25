@@ -140,6 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 'minutes': minutes,
                 'seconds': seconds
             };
+
         }
 
         function setClock(selector, endtime) {
@@ -163,5 +164,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         }
+        setClock('.timer_wrapper', deadtime);
 });
 
