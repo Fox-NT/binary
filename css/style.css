@@ -1216,7 +1216,36 @@ body {
     color: #d1d1d1;
     font-weight: 700;
 }
-.timer_block {
+.timer_block1 {
     display: none;
 }
+
+.timer_wrapper {
+    display: flex;
+    justify-content: center;
+}
+.timer {
+    padding: 15px;
+}
+
+.timer_title {
+    font-size: 15px;
+}
+
+.razdel {
+    font-size: 30px;
+    padding-top: 2px;
+    margin: 0 3px;
+}
+
+.days, .hourse, .minutes, .seconds {
+    font-size: 30px;
+    padding: 6px 0;
+    width: 50px;
+}
+
+.text_time {
+    font-size: 12px;
+}
+
 }
