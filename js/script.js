@@ -194,9 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         window.addEventListener('resize', () => {
-            
-
-        console.log(`Высота окна: ${document.documentElement.clientHeight}`);
+            console.log(`Высота окна: ${document.documentElement.clientHeight}`);
+            console.log(`Ширина окна: ${document.documentElement.clientWidth}`);
         });
 
 
