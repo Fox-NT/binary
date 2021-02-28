@@ -173,6 +173,34 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        setClock('.timer_wrapper', deadtime);
-});
+    // setClock('.timer_wrapper', deadtime);
 
+
+        const arrowDown = document.querySelector('.arrow_bottom'),
+              about = document.querySelector(".about"),
+              buttonUp = document.querySelector('.btn_up');
+        // let s = window.pageYOffset;
+        window.addEventListener('scroll', () => {
+            console.log(window.pageYOffset);
+            if (window.pageYOffset >= 1000) {
+                buttonUp.classList.add('btn_up_show');
+            } else {
+                buttonUp.classList.remove('btn_up_show');
+            }
+        });
+
+        buttonUp.addEventListener('click', () => {
+            window.scrollTo(0, 0);
+        });
+
+        console.log(`Высота окна: ${document.documentElement.clientHeight}`);
+
+
+
+
+
+
+
+
+
+});

@@ -1,3 +1,24 @@
+/*Шрифты*/
+@font-face {
+    font-family: 'Gilroy-Bold';
+    src: local('Gilroy Bold'), local('Gilroy-Bold'),
+        url('fonts/Gilroy-Bold.woff2') format('woff2'),
+        url('fonts/Gilroy-Bold.woff') format('woff'),
+        url('fonts/Gilroy-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Gilroy-Medium';
+    src: local('Gilroy Medium'), local('Gilroy-Medium'),
+        url('fonts/Gilroy-Medium.woff2') format('woff2'),
+        url('fonts/Gilroy-Medium.woff') format('woff'),
+        url('fonts/Gilroy-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+/*Шрифты*/
+
 /*Style reset*/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -253,6 +274,7 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
+    position: relative;
 }
 .header_main {
     width: 100%;
@@ -1045,6 +1067,40 @@ body {
     user-select: none;
 }
 
+.btn_up {
+    position: fixed;
+    bottom: 70px;
+    right: 70px;
+    cursor: pointer;
+    visibility: hidden;
+    /* display: none; */
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.btn_up_image {
+    width: 60px;
+    height: 60px;
+    /* border: 2px solid #f0f0f0; */
+    border-radius: 50%;
+    background-image: url(../image/up.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-sizing: border-box;
+}
+
+.btn_up_show {
+    display: block;
+    visibility:visible;
+    opacity: 0.5;
+    transition: 0.5s;
+}
+
+.btn_up_show:hover {
+    opacity: 1;
+    transition: 0.5s;
+}
 /*Media query*/
 @media screen and (max-width:550px) {
     .nav_list {
@@ -1261,6 +1317,11 @@ body {
 
 .text_time {
     font-size: 12px;
+}
+
+.btn_up {
+    bottom: 20px;
+    right: 20px;
 }
 
 }
