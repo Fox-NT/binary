@@ -193,7 +193,11 @@ document.addEventListener('DOMContentLoaded', () => {
             window.scrollTo(0, 0);
         });
 
+        window.addEventListener('resize', () => {
+            
+
         console.log(`Высота окна: ${document.documentElement.clientHeight}`);
+        });
 
 
 
