@@ -1525,7 +1525,10 @@ body {
 }
 
 /*Media query*/
-@media screen and (max-width:550px) {
+@media screen and (max-width:768px) {
+    .modal_wrapper {
+        width: 305px;
+    }
     .nav_list {
         display: -webkit-box;
         display: -ms-flexbox;
