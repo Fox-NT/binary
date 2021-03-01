@@ -204,7 +204,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+        const modal = document.querySelector('.modal_container'),
+              modalOpen = document.querySelector('.read_more'),
+              modalSignInTab = document.querySelector('.modal_sign-in'),
+              modalNewAccountTab = document.querySelector('.modal_new-account'),
+              modalSignIn = document.querySelector('.modal_body_sign-in'),
+              modalNewAccount = document.querySelector('.modal_body_new-account'),
+              modalClose = document.querySelectorAll('.modal_cancel');
 
+
+    function openModal() {
+        modal.classList.add('modal_show');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.classList.remove('modal_show');
+        document.body.style.overflow = '';
+    }
+
+    modalOpen.addEventListener('click', openModal);
+
+    modalClose.forEach(btn => {
+        btn.addEventListener('click', () => {
+            closeModal();
+        });
+    });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if( e.code === "Escape" && modal.classList.contains('modal_show')) {
+            closeModal();
+        }
+    });
+
+    modalNewAccountTab.addEventListener('click', () => {
+        modalSignInTab.classList.remove('current_modal_tab');
+        modalNewAccountTab.classList.add('current_modal_tab');
+        modalSignIn.style.display = "none";
+        modalNewAccount.style.display = "flex";
+    });
+
+    modalSignInTab.addEventListener('click', () => {
+        modalNewAccountTab.classList.remove('current_modal_tab');
+        modalSignInTab.classList.add('current_modal_tab');
+        modalNewAccount.style.display = "none";
+        modalSignIn.style.display = "flex";
+    });
+        
 
 
 

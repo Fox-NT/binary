@@ -23,7 +23,7 @@
                 <hr>
             </div>
             <div class="header_button">
-                <a href="#" class="read_more">Read more</a>
+                <a href="#" class="read_more">Login</a>
             </div>
             <div class="arrow_bottom">
             </div>
@@ -326,6 +326,39 @@
     </footer>
     <div class="btn_up">
         <div class="btn_up_image">
+        </div>
+    </div>
+    <div class="modal_container">
+        <div class="modal_wrapper">
+            <div class="modal_list_tabs">
+                <div class="current_modal_tab modal_sign-in modal_tab">Sign In</div>
+                <div class=" modal_new-account modal_tab">New Account</div>
+            </div>
+            <div class="modal_body_new-account">
+                <form action="post">
+                    <input type="text" name="username" id="modal_username_new" placeholder="Username">
+                    <input type="email" name="email" id="modal_email_new" placeholder="E-mail">
+                    <input type="password" name="password" id="modal_password_new" placeholder="Password">
+                    <div class="agree_check">
+                        <input type="checkbox" required name="agree_rules" id="agree-rules">
+                        <label for="agree-rules">I agree with the <a href="#">Rules</a> </label>
+                    </div>
+                    <div class="modal_new-account_btn">
+                        <button type="button" class="modal_cancel">Cancel</button>
+                        <button type="submit" class="modal_send_new-account">Create Account</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal_body_sign-in">
+                <form action="post">
+                    <input type="text" name="username" id="modal_username" placeholder="Username">
+                    <input type="password" name="password" id="modal_password" placeholder="Password">
+                    <div class="modal_sign-in_btn">
+                        <button type="button" class="modal_cancel">Cancel</button>
+                        <button type="submit" class="modal_send_sign-in">Log In</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
     <script src="js/script.js"></script>
