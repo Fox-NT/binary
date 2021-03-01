@@ -178,7 +178,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const arrowDown = document.querySelector('.arrow_bottom'),
               about = document.querySelector(".about"),
-              buttonUp = document.querySelector('.btn_up');
+              buttonUp = document.querySelector('.btn_up'),
+              contact = document.querySelector('.contact');
         // let s = window.pageYOffset;
         window.addEventListener('scroll', () => {
             console.log(window.pageYOffset);
@@ -190,11 +191,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         buttonUp.addEventListener('click', () => {
-            window.scrollTo(0, 0);
+            // window.scrollTo(0, 0);
+            document.documentElement.scrollIntoView({block: 'start', behavior: 'smooth'});
         });
 
         arrowDown.addEventListener('click', () => {
-            window.scrollTo(0, 1000);
+            contact.scrollIntoView({block: 'start', behavior: 'smooth'});
+            // window.scrollTo(0, 1000);
         });
 
         window.addEventListener('resize', () => {
