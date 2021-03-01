@@ -193,6 +193,10 @@ document.addEventListener('DOMContentLoaded', () => {
             window.scrollTo(0, 0);
         });
 
+        arrowDown.addEventListener('click', () => {
+            window.scrollTo(0, 1000);
+        });
+
         window.addEventListener('resize', () => {
             console.log(`Высота окна: ${document.documentElement.clientHeight}`);
             console.log(`Ширина окна: ${document.documentElement.clientWidth}`);
