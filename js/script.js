@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         arrowDown.addEventListener('click', () => {
-            contact.scrollIntoView({block: 'start', behavior: 'smooth'});
+            about.scrollIntoView({block: 'start', behavior: 'smooth'});
             // window.scrollTo(0, 1000);
         });
 
