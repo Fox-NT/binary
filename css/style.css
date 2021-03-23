@@ -718,6 +718,15 @@ body {
     display: none
 }
 
+.portfolio_input form {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    margin-top: -100px;
+    margin-bottom: 20px;
+}
+
 .portfolio_list {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1668,6 +1677,10 @@ body {
     /* .menu-list li:hover .sub-menu-list {
         display: block;
     } */
+
+.burger_menu {
+    width: 80%;
+}
 
 
     .menu-list {
