@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
     function showAllContent() {
+        tabs.forEach(item => {
+            item.classList.remove('active_tab');
+        });
         tabs[0].classList.add('active_tab');
         content.forEach(item => {
             item.classList.add('show');
@@ -32,8 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     hideContent();
-    showContent();
-
+    showAllContent();
     parentContent.addEventListener('click', (event) => {
         const target = event.target;
         if (target && target.classList.contains('portfolio_tab')) {
@@ -54,63 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     menuBtn.addEventListener('click', () => {
         menu.classList.toggle('sub-show');
         menuBtn.classList.toggle('menu_a_active');
-        // if (menu.classList.contains('sub-show')) {
-        //     menu.classList.add('sub-hide');
-        //     menu.classList.remove('sub-show');
-        //     menuBtn.classList.remove('menu_a_active');
-        // } else {
-        //     menu.classList.add('sub-show');
-        //     menu.classList.remove('sub-hide');
-        //     menuBtn.classList.add('menu_a_active');
-        // }
-    // });
     });
-
-    const nameInput = document.querySelector('.input_text'),
-          emailInput = document.querySelector('.input_email'),
-          messageInput = document.querySelector('.input_message'),
-          sendFormInput = document.querySelector('.contact_btn');
-
-    // const obj = {
-    //     name: '',
-    //     email: '',
-    //     message: ''
-    // };
-    const obj = {
-        Users: [
-            {
-        name: '',
-        email: '',
-        message: ''
-            }
-        ]
-    };
-    
-    let i = 0;
-        sendFormInput.addEventListener('click', (e) => {
-            e.preventDefault();
-            let nameUser = nameInput.value;
-            let emailUser = emailInput.value;
-            let messageUser = messageInput.value;
-
-            obj.Users[i] = {
-                name: nameUser,
-                email: emailUser,
-                message: messageUser
-            };
-            
-            console.log(`Имя пользователя: ${obj.Users[i].name};`);
-            console.log(`E-mail пользователя: ${obj.Users[i].email};`);
-            console.log(`Сообщение пользователя: ${obj.Users[i].message};`);
-            console.log(obj);
-            i++;
-    //   obj.Users.forEach((item) => {
-    //     console.log(`Имя пользователя: ${item.name};`);
-    //     console.log(`E-mail пользователя: ${item.email};`);
-    //     console.log(`Сообщение пользователя: ${item.message};`);
-    // });  
-            
-        });
 
     const razdel = document.querySelectorAll('.razdel');
 
@@ -259,10 +205,138 @@ document.addEventListener('DOMContentLoaded', () => {
         modalNewAccount.style.display = "none";
         modalSignIn.style.display = "flex";
     });
-        
+
+    const formFeedback = document.querySelector('.form'),
+          tabBlock = document.querySelector('.portfolio .container'),
+          tabWeb = tabBlock.querySelector('.web .portfolio_row'),
+          all = tabBlock.querySelector('.all .portfolio_row'),
+          tabApps = tabBlock.querySelector('.apps .portfolio_row'),
+          tabOthers = tabBlock.querySelector('.others .portfolio_row');
+    const messageProcess = {
+          loading: "Данные отправляются...",
+          ready: 'Данные отправлены. Спасибо, мы с Вами свяжемся!',
+          fail: 'Произошла ошибка...'
+    };
+
+    const urlImg = 'https://source.unsplash.com/random/',
+          row = 5;
+    
+    function getRandom() {
+        return Math.floor(Math.random() * 2000);
+    }
+
+    function getRandomSize() {
+        return `${getRandom()}x${getRandom()}`;
+    }
+
+    
+
+for(let i = 0; i < row * 2; i++) {
+        const itemTab = document.createElement('div');
+        itemTab.classList.add('row_item');
+        itemTab.innerHTML = `<img src=${urlImg}${getRandomSize()} alt=''>`;
+        console.log(getRandom);
+        console.log(getRandomSize);
+        console.log(itemTab);
+        console.log(`<img src=${urlImg}${getRandomSize()} alt=''>`);
+    all.append(itemTab);
+}
 
 
+    const formImg = document.querySelector('[data-img]');
 
+    function createItemTab(img, alt, parrent) {
+        const itemTab = document.createElement('div');
+        itemTab.classList.add('row_item');
+        itemTab.innerHTML = `<img src=${img} alt='${alt}'>`;
+        parrent.append(itemTab);
+    }
 
+    class ItemCard {
+        constructor(img, alt, parrent) {
+            this.img = img;
+            this.alt = alt;
+            this.parrent = parrent;
+        }
+        push() {
+            createItemTab(this.img, this.alt, this.parrent);
+        }
+    }
+    const getCard = async (url) => {
+        const res = await fetch(url);
+        if(!res.ok) {
+            throw Error('Error, try latter, pls');
+        }
+        return res.json();
+    };
+    const reload = () => {
+        document.location.reload();
+    };
 
+    getCard('http://localhost:3000/card')
+    .then(data => {
+        data.forEach(({img, imgalt, catdata}) => {
+            if(catdata == 'Web') {
+                new ItemCard(img, imgalt, tabWeb).push();
+            } else if (catdata == 'Apps') {
+                new ItemCard(img, imgalt, tabApps).push();
+            } else if (catdata == 'Others') {
+                new ItemCard(img, imgalt, tabOthers).push();
+            }
+        });
+    })
+    .finally();
+
+    const postRequest = async (url, data) => {
+        const res = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: data
+        });
+        return await res.json();
+    };
+
+    const btnport = document.querySelector('[data-imgbtn]'),
+          btncontact = document.querySelector('.contact_btn');
+    btnport.addEventListener('click', () => {
+        postData(formImg, 'http://localhost:3000/card');
+        reload();
+    });
+    btncontact.addEventListener('click', postData(formFeedback, 'http://localhost:3000/message'));
+    
+    function postData(form, req) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const statusMessage = document.createElement('div');
+            statusMessage.innerHTML = messageProcess.loading;
+            form.append(statusMessage);
+
+            const formData = new FormData(form),
+            t = Object.fromEntries(formData.entries()),
+            sendRequest = JSON.stringify(t);
+                postRequest(req, sendRequest)
+                .then(data => {
+                    console.log(data);
+                    statusMessage.innerHTML = "";
+                    statusMessage.innerHTML = messageProcess.ready;
+                })
+                .catch(() => {
+                    statusMessage.innerHTML = messageProcess.fail;
+                })
+                .finally(() => {
+                    form.reset();
+                });
+            // if (t.catdata === 'Web') {
+            //     b('http://localhost:3000/web');
+            // } else if (t.catdata === 'Apps') {
+            //     b('http://localhost:3000/apps');
+            // } else if (t.catdata === 'Others') {
+            //     b('http://localhost:3000/others');
+            // } else {
+            //     b('http://localhost:3000/requests');
+            // }
+        });
+    }
 });

@@ -64,58 +64,6 @@
         
     </header>
     <main class="main_content">
-        <!-- <section class="timer_block1">
-            <div class="timer">
-                <div class="timer_title">До окончания таймера осталось:</div>
-                <div class="timer_wrapper">
-                    <div class="block">
-                        <span class="days">12</span>
-                        <span class="text_time">Дней</span>
-                    </div>
-                    <span class="razdel">:</span>
-                    <div class="block">
-                        <span class="hourse">22</span>
-                        <span class="text_time">Часа</span>
-                    </div>
-                    <span class="razdel">:</span>
-                    <div class="block">
-                        <span class="minutes">13</span>
-                        <span class="text_time">Минут</span>
-                    </div>
-                    <span class="razdel">:</span>
-                    <div class="block">
-                        <span class="seconds">55</span>
-                        <span class="text_time">Секунд</span>
-                    </div>
-            </div>
-        </div>
-    </section>
-    <section class="timer_block">
-        <div class="timer">
-            <div class="timer_title">До окончания таймера осталось:</div>
-            <div class="timer_wrapper">
-                <div class="block">
-                    <span class="days">12</span>
-                    <span class="text_time">Дней</span>
-                </div>
-                <span class="razdel">:</span>
-                <div class="block">
-                    <span class="hourse">22</span>
-                    <span class="text_time">Часа</span>
-                </div>
-                <span class="razdel">:</span>
-                <div class="block">
-                    <span class="minutes">13</span>
-                    <span class="text_time">Минут</span>
-                </div>
-                <span class="razdel">:</span>
-                <div class="block">
-                    <span class="seconds">55</span>
-                    <span class="text_time">Секунд</span>
-                </div>
-        </div>
-    </div>
-</section> -->
         <section class="about">
             <a id="about"></a>
             <div class="container">
@@ -180,60 +128,40 @@
                     <div class="portfolio_tab">Apps</div>
                     <div class="portfolio_tab">Other</div>
                 </div>
-                <div class="portfolio_block show">
+                <div class="portfolio_input">
+                    <form action="POST" data-img>
+                        <label for="img">Вставьте ссылку на картинку:</label>
+                        <input type="text" name='img' id='img'>
+                        <label for="imgalt">Вставьте описание этой картинки:</label>
+                        <input type="text" name='imgalt' id='imgalt'>
+                        <label for="catdata">Выберите категорию</label>
+                        <input list="category" id="catdata" name="catdata">
+                        <datalist name="category" id="category">
+                            <option value="Web">
+                            <option value="Apps">
+                            <option value="Others">
+                        </datalist>
+                        <button type="submit" data-imgbtn>Загрузить!</button>
+                    </form>
+                </div>
+                <div class="portfolio_block all show">
                     <div class="portfolio_row">
-                        <div class="row_item"><img src="image/items/1.jpg" alt=""></div>
-                        <div class="row_item"><img src="image/items/2.jpg" alt=""></div>
-                    </div>
-                    <div class="portfolio_row">
-                        <div class="row_item"><img src="image/items/3.jpg" alt=""></div>
-                        <div class="row_item"><img src="image/items/4.jpg" alt=""></div>
-                    </div>
-                    <div class="portfolio_row">
-                        <div class="row_item"><img src="image/items/5.jpg" alt=""></div>
-                        <div class="row_item"><img src="image/items/6.jpg" alt=""></div>
+                        
                     </div>
                 </div>
-                <div class="portfolio_block hide">
+                <div class="portfolio_block web hide">
                     <div class="portfolio_row">
-                        <div class="row_item"><img src="image/items/7.jpg" alt=""></div>
-                        <div class="row_item"><img src="image/items/8.jpg" alt=""></div>
-                    </div>
-                    <div class="portfolio_row">
-                        <div class="row_item"><img src="image/items/9.jpg" alt=""></div>
-                        <div class="row_item"><img src="image/items/10.jpg" alt=""></div>
-                    </div>
-                    <div class="portfolio_row">
-                        <div class="row_item"><img src="image/items/11.jpg" alt=""></div>
-                        <div class="row_item"><img src="image/items/12.jpg" alt=""></div>
+                       
                     </div>
                 </div>
-                <div class="portfolio_block hide">
+                <div class="portfolio_block apps hide">
                     <div class="portfolio_row">
-                        <div class="row_item"><img src="image/items/13.jpg" alt=""></div>
-                        <div class="row_item"><img src="image/items/14.jpg" alt=""></div>
-                    </div>
-                    <div class="portfolio_row">
-                        <div class="row_item"><img src="image/items/15.jpg" alt=""></div>
-                        <div class="row_item"><img src="image/items/16.jpg" alt=""></div>
-                    </div>
-                    <div class="portfolio_row">
-                        <div class="row_item"><img src="image/items/17.jpg" alt=""></div>
-                        <div class="row_item"><img src="image/items/18.jpg" alt=""></div>
+                        
                     </div>
                 </div>
-                <div class="portfolio_block hide">
+                <div class="portfolio_block others hide">
                     <div class="portfolio_row">
-                        <div class="row_item"><img src="image/items/19.jpg" alt=""></div>
-                        <div class="row_item"><img src="image/items/20.jpg" alt=""></div>
-                    </div>
-                    <div class="portfolio_row">
-                        <div class="row_item"><img src="image/items/21.jpg" alt=""></div>
-                        <div class="row_item"><img src="image/items/22.jpg" alt=""></div>
-                    </div>
-                    <div class="portfolio_row">
-                        <div class="row_item"><img src="image/items/23.jpg" alt=""></div>
-                        <div class="row_item"><img src="image/items/24.jpg" alt=""></div>
+                        
                     </div>
                 </div>
                 <!-- <div class="portfolio_list">
@@ -277,20 +205,20 @@
                             <div class="user_contacts">
                                 <div class="user_name">
                                     <label for="name">Your name</label>
-                                    <input type="text" id="name" class="input_text">
+                                    <input type="text" id="name" name="name" class="input_text">
                                 </div>
                                 <div class="user_email">
                                     <label for="user-email">Your e-mail</label>
-                                    <input type="email" id="user-email" class="input_email">
+                                    <input type="email" id="user-email" name="email" class="input_email">
                                 </div>
                             </div>
                             <div class="user_message">
                                 <label for="message">Message</label>
-                                <textarea name="message" id="message" class="input_message"></textarea>
+                                <textarea name="message" id="message" name="message" class="input_message"></textarea>
                             </div>
                             <button type="submit" class="contact_btn">Send</button>
                         </form>
-                    </div>
+                    </div><a href="javascript://">Ссылка</a>
                     <div class="contact_info">
                         <div class="contact_information">
                             Have an idea for a project? Just looking to explore and see the possibilities?<br> I'm here to help.

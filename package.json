@@ -1,0 +1,24 @@
+{
+  "name": "binary",
+  "version": "1.0.0",
+  "description": "578 координаты about",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "json-server db.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fox-NT/binary.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fox-NT/binary/issues"
+  },
+  "homepage": "https://github.com/Fox-NT/binary#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "json-server": "^0.16.3"
+  }
+}

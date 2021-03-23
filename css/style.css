@@ -718,6 +718,15 @@ body {
     display: none
 }
 
+.portfolio_input form {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    margin-top: -100px;
+    margin-bottom: 20px;
+}
+
 .portfolio_list {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -818,6 +827,7 @@ body {
 .row_item img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
     
 }
 
