@@ -1679,6 +1679,10 @@ body {
         display: block;
     } */
 
+.burger_menu {
+    width: 80%;
+}
+
 
     .menu-list {
         
